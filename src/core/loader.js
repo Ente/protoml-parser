@@ -43,4 +43,46 @@ function findTagImports(ast) {
     .map(match => match[1])
 }
 
-module.exports = { loadAndMergeImports }
+const macroCache = {}
+
+function loadAndMergeMacros(ast, basePath, options = {}) {
+  if (!ast.macros) return ast
+
+  for (const name in ast.macros) {
+    const file = ast.macros[name]
+    const fullPath = path.join(basePath, file.replace(/\"/g, ""))
+
+    if (!fs.existsSync(fullPath)) continue
+    const lines = fs.readFileSync(fullPath, "utf8").split(/\r?\n/)
+
+    let macroName = null
+    let templateLines = []
+    let inTemplate = false
+
+    for (const line of lines) {
+      if (line.startsWith("=name:")) {
+        macroName = line.slice(6).trim()
+      } else if (line.startsWith("=template:")) {
+        inTemplate = true
+        const rest = line.slice(10).trim()
+        if (rest) templateLines.push(rest)
+      } else if (inTemplate && (line.startsWith("@") || line.startsWith("="))) {
+        // Stop reading template
+        inTemplate = false
+      } else if (inTemplate) {
+        templateLines.push(line)
+      }
+    }
+
+    if (macroName && templateLines.length) {
+      macroCache[macroName] = templateLines.join("\n")
+    }
+  }
+
+  ast._macroCache = macroCache
+  return ast
+}
+
+
+
+module.exports = { loadAndMergeImports, loadAndMergeMacros }

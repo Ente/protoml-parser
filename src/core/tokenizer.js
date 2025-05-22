@@ -11,16 +11,22 @@ function tokenize(text) {
     }
     if (raw.match(/^@\w+:/)) {
       const [key, ...val] = raw.slice(1).split(":");
-      tokens.push({type: "meta", key, value: val.join(":").trim(), line});
+      tokens.push({ type: "meta", key, value: val.join(":").trim(), line });
+      continue;
+    }
+
+    if (raw.startsWith("@macro ")) {
+      const [, name, file] = raw.split(" ");
+      tokens.push({ type: "macro", name, file: file.replace(/\"/g, ""), raw, line });
       continue;
     }
 
     // Command block e.g. @participants
     if (raw.startsWith("@@")) {
-      tokens.push({type: "inlineCommand", raw, command: raw.slice(2), line});
+      tokens.push({ type: "inlineCommand", raw, command: raw.slice(2), line });
     } else if (raw.startsWith("@")) {
       const value = raw.slice(1).split(":")[0].split("=")[0];
-      tokens.push({type: "command", raw, value, line});
+      tokens.push({ type: "command", raw, value, line });
     }
     // Declaration with ID e.g. =pt1:Some value
     else if (raw.startsWith("=")) {
@@ -35,21 +41,20 @@ function tokenize(text) {
     }
     // List/entry item e.g. - Something
     else if (raw.startsWith("-")) {
-      tokens.push({type: "entry", raw, value: raw.slice(1).trim(), line});
+      tokens.push({ type: "entry", raw, value: raw.slice(1).trim(), line });
     }
     // Markdown header
     else if (raw.match(/^#{1,4}\s+/)) {
       const level = raw.match(/^#+/)[0].length;
       const value = raw.slice(level).trim();
-      tokens.push({type: "heading", raw, value, level, line});
+      tokens.push({ type: "heading", raw, value, level, line });
     }
     // Fallback
     else {
-      tokens.push({type: "text", raw, value: raw, line});
+      tokens.push({ type: "text", raw, value: raw, line });
     }
   }
-
   return tokens;
 }
 
-module.exports = {tokenize};
+module.exports = { tokenize };

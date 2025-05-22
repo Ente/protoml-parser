@@ -5,7 +5,7 @@ const { tokenize } = require("./tokenizer")
 const { parseBlocks } = require("./blockParser")
 const { resolveReferences } = require("./referenceLinker")
 const { parseInline } = require("./inlineParser")
-const { loadAndMergeImports } = require("./loader")
+const { loadAndMergeImports, loadAndMergeMacros } = require("./loader")
 
 function parseFile(filename, options = {}) {
   if (!fs.existsSync(filename)) {
@@ -17,6 +17,7 @@ function parseFile(filename, options = {}) {
   let ast = parseBlocks(tokens, options)
 
   ast = loadAndMergeImports(ast, path.dirname(filename), options)
+  ast = loadAndMergeMacros(ast, path.dirname(filename), options)
 
   ast = resolveReferences(ast, options)
   ast = parseInline(ast, options)

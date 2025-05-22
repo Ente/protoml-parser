@@ -9,7 +9,14 @@ function parseBlocks(tokens, options = {}) {
       continue;
     }
 
+    if (token.type === "macro") {
+      result.macros = result.macros || {};
+      result.macros[token.name.trim()] = token.file.trim();
+      continue;
+    }
+
     if (token.type === "command") {
+
       currentBlock = token.value.toLowerCase();
       if (!result[currentBlock]) {
         result[currentBlock] =
@@ -49,7 +56,7 @@ function parseBlocks(tokens, options = {}) {
           const tag = token.raw.match(/@tag=([^\s]+)/)?.[1] || null;
 
           const cleanedText = token.value
-            .replace(/^\[(x| )\]/, "") 
+            .replace(/^\[(x| )\]/, "")
             .replace(/@ptp=[^\s]+/g, "")
             .replace(/@tag=[^\s]+/g, "")
             .replace(/=[^\s]+/g, "")

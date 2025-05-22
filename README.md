@@ -32,6 +32,7 @@ ProtoML is a lightweight, declarative markup language designed for writing and s
 ## Example
 ```plaintext
 @tags_import "tags.pml"
+@macro myMacro "myMacro.pml"
 
 @date:21.05.2025
 @participants // or @ptp
@@ -52,6 +53,8 @@ ProtoML is a lightweight, declarative markup language designed for writing and s
 # Meeting Title: @@e=0 // echoes value of ID 0
 ## Participants
 @@e=pt1 , @@e=pt2
+## Some topic
+@@macro=myMacro:title=IMPORTANT;text=@@e=1
 .....
 
 ```
@@ -62,6 +65,16 @@ ProtoML is a lightweight, declarative markup language designed for writing and s
 @tags // this command behaves differently when used in the tags.pml
 =0:Important
 =important:Critical, high priority
+```
+
+## External macro file (myMacro.pml)
+
+```plaintext
+@new_macro
+=name:myMacro
+=template:
+<div class="warn-box><strong>{{title}}</strong><br />{{text}}</div>
+
 ```
 
 ## Parser logic (simplified)
