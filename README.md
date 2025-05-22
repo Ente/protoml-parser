@@ -2,6 +2,13 @@
 
 ProtoML is a lightweight, declarative markup language designed for writing and structuring meeting protocols, notes and task lists in a human-readable and machine-parseable format.
 
+## Installing the Parser
+
+- Clone the repository: `git clone https://github.com/ente/protoml-parser.git`
+- Install the app: `npm install -g .`
+- Restart your terminal
+- Run `protoparser test.pml html` to convert a file named `test.pml` to HTML.
+
 ## Key Concepts
 
 - **Purely declarative** - no logic, no runtime, just the code
@@ -108,6 +115,7 @@ ProtoML is a lightweight, declarative markup language designed for writing and s
 ## protoparser (protoml-parser)
 
 `protoparser` is the command-line tool for parsing `.pml` files (ProtoML) and converting them into structured formats such as JSON, HTML, PDF and more.
+**The parser currently only support HTML rendering.** The other formats are planned for future releases.
 
 ### Basic Usage
 

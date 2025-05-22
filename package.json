@@ -1,0 +1,32 @@
+{
+  "name": "protoml-parser",
+  "version": "1.0.1",
+  "description": "ProtoML is a lightweight, declarative markup language designed for writing and structuring meeting protocols, notes and task lists in a human-readable and machine-parseable format.",
+  "keywords": [
+    "protoml",
+    "parser",
+    "meeting",
+    "protocol",
+    "notes",
+    "task",
+    "list"
+  ],
+  "main": "bin/protoparser.js",
+  "bin": {
+    "protoml-parser": "bin/protoparser.js",
+    "protoparser": "bin/protoparser.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ente/protoml-parser.git"
+  },
+  "author": "Ente",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/Ente/protoml-parser/issues"
+  },
+  "homepage": "https://github.com/Ente/protoml-parser#readme"
+}
