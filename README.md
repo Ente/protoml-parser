@@ -129,6 +129,12 @@ protparser [options] [filename] [format]
 protoparser -vvv -output=myfile MeetingYesterday.pml html
 ```
 
+### Local development
+
+- Clone the repository
+- Make your changes
+- Run `npm run build:exe` to build linux and windows executables or simply run `npm uninstall -g protoparser && npm install -g .` to install your local version globally.
+
 ### Output
 
 ```plaintext
