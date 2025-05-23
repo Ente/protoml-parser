@@ -130,6 +130,15 @@ ProtoML is a lightweight, declarative markup language designed for writing and s
 `protoparser` is the command-line tool for parsing `.pml` files (ProtoML) and converting them into structured formats such as JSON, HTML, PDF and more.
 **The parser currently only support HTML rendering.** The other formats are planned for future releases.
 
+## Basic web parser
+
+The web parser allows you to directly write and simply parse ProtoML code in your browser. It does not fully support all features of the parser.
+Additionally, CSS is not supported within the web parser.
+
+To start using the web parser, simply open the `web/index.html`
+To rebuild the parser bundle, run `npm run build:web` in the root directory of the project.
+To run a webserver directly use `npm run dev` which starts a `serve` command on port 3000.
+
 ### Basic Usage
 
 ```bash
@@ -141,12 +150,6 @@ protparser [options] [filename] [format]
 ```bash
 protoparser -vvv -output=myfile MeetingYesterday.pml html
 ```
-
-### Local development
-
-- Clone the repository
-- Make your changes
-- Run `npm run build:exe` to build linux and windows executables or simply run `npm uninstall -g protoparser && npm install -g .` to install your local version globally.
 
 ### Output
 
@@ -175,6 +178,12 @@ protoparser -vvv -output=myfile MeetingYesterday.pml html
 | `-theme=name` | Set export theme (used in HTML/PDF) |
 | `-config=PATH` | Use external config for rendering/export |
 | `--help` | Show CLI help |
+
+### Local development
+
+- Clone the repository
+- Make your changes
+- Run `npm run build:exe` to build linux and windows executables or simply run `npm uninstall -g protoparser && npm install -g .` to install your local version globally.
 
 ### Supported formats
 

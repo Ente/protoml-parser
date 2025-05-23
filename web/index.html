@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>ProtoML Viewer</title>
+
+
+</head>
+
+<body>
+    <h1>ProtoML Viewer</h1>
+    <p>The viewer heavily differs from the parser as not all styles are supported.</p>
+    <textarea id="input" rows="10" cols="80">@date:21.05.2025
+@notes
+- Some note
+    </textarea><br />
+    <button onclick="render()">Render</button>
+    <iframe id="preview" style="width:100%; height:300px;"></iframe>
+    <button id="download">Download</button>
+
+</body>
+<script src="parser.bundle.js"></script>
+<script>
+    function render() {
+        const input = document.getElementById("input").value;
+        const html = ProtoParser.parseTextToHTML(input);
+        document.getElementById("preview").srcdoc = html;
+    }
+
+    document.getElementById("download").addEventListener("click", () => {
+      const content = input.value;
+      downloadFile(content, "protocol.pml", "text/plain");
+    });
+
+  function downloadFile(content, filename, mime) {
+    const blob = new Blob([content], { type: mime });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 500);
+  }
+</script>
+
+</html>

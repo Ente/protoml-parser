@@ -1,7 +1,10 @@
 const fs = require("fs");
 const path = require("path");
 
-function loadTheme(themeName) {
+function loadTheme(themeName, skip = 0) {
+  if (skip) {
+    return "";
+  }
   const themePath = path.join(
     __dirname,
     "./themes",
@@ -33,7 +36,7 @@ function escape(text) {
 }
 
 function renderHTML(ast, options = {}) {
-  const css = loadTheme(options.theme);
+  const css = loadTheme(options.theme, options.skipTheme);
 
   const html = [];
 
