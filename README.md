@@ -9,6 +9,14 @@ ProtoML is a lightweight, declarative markup language designed for writing and s
 - Restart your terminal
 - Run `protoparser test.pml html` to convert a file named `test.pml` to HTML.
 
+## Install via NPM
+
+Requires Node 18
+
+```bash
+npm install -g protoml-parser
+```
+
 ## Key Concepts
 
 - **Purely declarative** - no logic, no runtime, just the code
