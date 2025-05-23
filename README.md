@@ -30,6 +30,9 @@ ProtoML is a lightweight, declarative markup language designed for writing and s
 | `-b Text -b-`, `-i Text -i-`, `-a=url Text -a-` | Inline text styling |
 
 ## Example
+
+All available commands are used in this example.
+
 ```plaintext
 @tags_import "tags.pml"
 @macro myMacro "myMacro.pml"
@@ -59,7 +62,7 @@ ProtoML is a lightweight, declarative markup language designed for writing and s
 
 ```
 
-## External tags file (tags.pml)
+## External tags file (tags.pml) - not fully supported, yet
 
 ```plaintext
 @tags // this command behaves differently when used in the tags.pml
@@ -69,6 +72,15 @@ ProtoML is a lightweight, declarative markup language designed for writing and s
 
 ## External macro file (myMacro.pml)
 
+Macros allow you to do any styling the render is not able to understand, the below's example therefore can only affectively be used with the `html` render.
+
+* `=name:myMacro` defines the name to be used when accessing the macro like `@@macro=myMacro:....`
+* `=template:` defines what the macro does, this can be multiline.
+
+**For `html` renders, keep in mind, that `protoparser` does not remove JS code contained inside a `html` macro.
+This could lead to possible security risks like XSS**
+The behavior for this will be changed in release v1.1.0, allowing native JS integration to your scripts.
+
 ```plaintext
 @new_macro
 =name:myMacro
@@ -76,6 +88,16 @@ ProtoML is a lightweight, declarative markup language designed for writing and s
 <div class="warn-box><strong>{{title}}</strong><br />{{text}}</div>
 
 ```
+
+## Upcoming features (release v1.1.0)
+
+- `pdf` render support
+- Full implementation of the `@tag`/`@tags_import` command
+- Fixing not being able to assign subjects to tasks
+- Simple SDK for stable support
+- Shipped macros
+- Adding dynamic macros (with JS support)
+
 
 ## Parser logic (simplified)
 
@@ -87,6 +109,8 @@ ProtoML is a lightweight, declarative markup language designed for writing and s
 - Styling uses `-i -i-` for italic, `-b -b-` for bold and `-a=url -a-` for links, similarly to the Tags in HTML
 
 ## Output Format (Example: JSON)
+
+The JSON format represents the actual AST (Abstract Syntax Tree) used by the renders, which may help you when experiencing issues.
 
 ```json
 {
@@ -142,7 +166,7 @@ To run a webserver directly use `npm run dev` which starts a `serve` command on 
 ### Basic Usage
 
 ```bash
-protparser [options] [filename] [format]
+protoparser [options] [filename] [format]
 ```
 
 #### Example
@@ -189,9 +213,6 @@ protoparser -vvv -output=myfile MeetingYesterday.pml html
 
 - `json`
 - `html`
-- `pdf`
-- `markdown`
-- `text`
 
 ### Notes
 
