@@ -1,0 +1,59 @@
+body {
+  font-family: Georgia, serif;
+  background: white;
+  color: black;
+  padding: 1cm;
+  max-width: 18cm;
+  margin: auto;
+}
+
+h1 {
+  font-size: 24pt;
+  border-bottom: 1px solid black;
+  margin-bottom: 1cm;
+}
+
+h2 {
+  font-size: 16pt;
+  margin-top: 1.5cm;
+  border-left: 4pt solid black;
+  padding-left: 0.3cm;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 1cm;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+.done {
+  text-decoration: line-through;
+  color: gray;
+}
+
+a {
+  color: black;
+  text-decoration: underline;
+}
+
+section {
+  margin-bottom: 1.5cm;
+  page-break-inside: avoid;
+}
+
+.tag {
+  background: lightgray;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+  margin-left: 0.3cm;
+}
+
+.meta {
+  font-size: 0.8em;
+  color: gray;
+  margin-top: 0.2em;
+}

@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+body {
+  font-family: 'Share Tech Mono', monospace;
+  background: repeating-linear-gradient(
+    45deg,
+    #000000,
+    #000000 10px,
+    #111111 10px,
+    #111111 20px
+  );
+  color: #00ffcc;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+  overflow-x: hidden;
+  text-shadow: 0 0 1px #00ffcc;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: #ff0066;
+  text-shadow: 0 0 5px #ff0066, 0 0 10px #ff0066;
+  border-bottom: 2px solid #ff0066;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  border-left: 4px solid #00ffcc;
+  padding-left: 0.5rem;
+  color: #00ffcc;
+  margin-top: 2rem;
+  text-shadow: 0 0 2px #00ffcc;
+}
+
+section {
+  background: rgba(255, 0, 102, 0.05);
+  border: 2px dashed #ff0066;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 10px #ff0066;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  background: rgba(0, 255, 204, 0.1);
+  padding: 0.8rem;
+  border-left: 4px solid #00ffcc;
+  transition: background 0.2s ease-in-out;
+}
+
+li:hover {
+  background: rgba(0, 255, 204, 0.2);
+}
+
+.done {
+  text-decoration: line-through;
+  color: #555;
+}
+
+a {
+  color: #ff0066;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 1px dashed #ff0066;
+}
+
+a:hover {
+  text-shadow: 0 0 3px #ff0066;
+  border-bottom: none;
+}
+
+.tag {
+  background: #ff0066;
+  color: #000;
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+.meta {
+  font-size: 0.8em;
+  color: #999;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+body::before {
+  content: '';
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  animation: flicker 2s infinite linear;
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 0.99;
+  }
+  20%, 24%, 55% {
+    opacity: 0.4;
+  }
+}

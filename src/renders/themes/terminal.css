@@ -1,0 +1,62 @@
+body {
+  font-family: 'Fira Code', monospace;
+  background: black;
+  color: #00ff00;
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+h1, h2 {
+  color: #00ff00;
+}
+
+h1 {
+  font-size: 2rem;
+  border-bottom: 1px solid #00ff00;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  border-left: 4px solid #00ff00;
+  padding-left: 0.5rem;
+  margin-top: 2rem;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+.done {
+  text-decoration: line-through;
+  color: #008800;
+}
+
+a {
+  color: #00ff00;
+  text-decoration: underline;
+}
+
+section {
+  margin-bottom: 2rem;
+  border: 1px dotted #00ff00;
+  padding: 1rem;
+}
+
+.tag {
+  background: #002200;
+  border: 1px solid #00ff00;
+  padding: 0.2em 0.5em;
+  font-size: 0.9em;
+  margin-left: 0.5rem;
+}
+
+.meta {
+  font-size: 0.8em;
+  color: #00cc00;
+}

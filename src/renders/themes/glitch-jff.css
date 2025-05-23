@@ -1,0 +1,85 @@
+body {
+  background: black;
+  color: #f0f0f0;
+  font-family: 'Orbitron', monospace;
+  padding: 3rem;
+  max-width: 900px;
+  margin: auto;
+  position: relative;
+  overflow-x: hidden;
+}
+
+h1, h2 {
+  position: relative;
+  color: #fff;
+  text-transform: uppercase;
+  animation: glitch 1s infinite;
+}
+
+h1 {
+  font-size: 2.5rem;
+  border-bottom: 2px solid #f0f;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  border-left: 4px solid #0ff;
+  padding-left: 0.5rem;
+  margin-top: 2rem;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 1px 1px #f0f, -1px -1px #0ff; }
+  20% { text-shadow: 2px -2px #0ff, -2px 2px #f0f; }
+  40% { text-shadow: -1px 1px #f0f, 1px -1px #0ff; }
+  60% { text-shadow: 0 0 #fff; }
+  80% { text-shadow: 2px 0 #f0f, -2px 0 #0ff; }
+  100% { text-shadow: -1px -1px #0ff, 1px 1px #f0f; }
+}
+
+ul, li {
+  list-style: square;
+  margin-left: 1rem;
+  line-height: 1.6;
+}
+
+.done {
+  color: #444;
+  text-decoration: line-through wavy #f0f;
+}
+
+a {
+  color: #0ff;
+  text-decoration: underline;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+section {
+  border: 1px dashed #f0f;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(2px);
+}
+
+.tag {
+  background: #0ff;
+  color: #000;
+  padding: 0.2em 0.4em;
+  margin-left: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.meta {
+  font-size: 0.8em;
+  color: #999;
+  font-style: italic;
+}
