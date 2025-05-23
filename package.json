@@ -1,6 +1,6 @@
 {
   "name": "protoml-parser",
-  "version": "1.1.0-feature-pdf",
+  "version": "1.1.0-feature-viewer",
   "description": "ProtoML is a lightweight, declarative markup language designed for writing and structuring meeting protocols, notes and task lists in a human-readable and machine-parseable format.",
   "keywords": [
     "protoml",
@@ -14,7 +14,9 @@
   "main": "bin/protoparser.js",
   "bin": {
     "protoml-parser": "bin/protoparser.js",
-    "protoparser": "bin/protoparser.js"
+    "protoml-viewer": "bin/protoviewer.js",
+    "protoparser": "bin/protoparser.js",
+    "protoviewer": "bin/protoviewer.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -46,6 +48,7 @@
     "@babel/core": "^7.27.1",
     "@babel/preset-env": "^7.27.2",
     "browserify": "^17.0.0",
+    "electron": "^36.3.1",
     "pkg": "^5.8.1",
     "serve": "^14.0.1"
   },

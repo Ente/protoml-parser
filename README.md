@@ -8,6 +8,7 @@ ProtoML is a lightweight, declarative markup language designed for writing and s
 - Install the app: `npm install -g .`
 - Restart your terminal
 - Run `protoparser test.pml html` to convert a file named `test.pml` to HTML.
+- Run `protoviewer test.pml [theme]` to view the file with the built-in viewer.
 
 ## Install via NPM
 
@@ -161,6 +162,13 @@ The JSON format represents the actual AST (Abstract Syntax Tree) used by the ren
 
 `protoparser` is the command-line tool for parsing `.pml` files (ProtoML) and converting them into structured formats such as JSON, HTML, PDF and more.
 **The parser currently only support HTML rendering.** The other formats are planned for future releases.
+
+### protoviewer (protoml-viewer)
+
+`protoviewer` is a simple Electron app that allows you to view rendered `.pml` files without the need of third-party tools, like a web browser.
+The viewer only support HTML rendering, since it's nature of being a electron app.
+
+You can use it this way: `protoviewer [filename] [theme]`
 
 ## Basic web parser
 
