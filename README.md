@@ -213,6 +213,7 @@ protoparser -vvv -output=myfile MeetingYesterday.pml html
 
 - `json`
 - `html`
+- `pdf`
 
 ### Notes
 
