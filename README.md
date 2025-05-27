@@ -218,6 +218,10 @@ protoparser -vvv -output=myfile MeetingYesterday.pml html
 | `-theme=name` | Set export theme (used in HTML/PDF) |
 | `-config=PATH` | Use external config for rendering/export |
 | `--help` | Show CLI help |
+| `--listMacros <dir>` | List all macros in the specified path or builtin macros |
+| `--macroHelp <file_path>` | Show help for a specific macro file |
+| `--listDocs` | List all available documentation files |
+| `--docs <name>` | Show documentation for a specific command or topic |
 
 ### Local development
 

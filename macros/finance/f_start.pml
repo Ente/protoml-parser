@@ -13,3 +13,11 @@
     </tr>
   </thead>
   <tbody>
+
+=docs:
+  This macro is used to start a financial overview table. It sets up the table structure with headers for title, amount, category, method, and notes. You can use this macro at the beginning of your financial entries to create a well-formatted table.
+
+  Example usage:
+  @@macro=f_start:x=x
+
+  After using this macro, you can add entries using the `f_entry` macro and close the table with the `f_end` macro.

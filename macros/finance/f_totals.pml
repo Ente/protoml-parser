@@ -22,3 +22,12 @@
     `;
   }
 </script>
+=docs:
+  This macro is used to display the total income, expenses, and balance in a financial overview table. It calculates the totals based on the entries made with the `f_entry` macro and displays them in a summary row at the end of the table.
+
+  Example usage:
+  @@macro=f_totals:x=x
+
+  The totals will be dynamically calculated and displayed in the table, providing a quick overview of your financial status.
+  Use this macro before the `f_end` macro to ensure it appears in the correct place in the table.
+  It is typically placed after all entries have been added using the `f_entry` macro.

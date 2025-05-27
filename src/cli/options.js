@@ -258,6 +258,12 @@ function parseArgs(argv = process.argv.slice(2)) {
 
 function printHelp() {
   console.log(`
+
+
+Protoparser CLI Tool
+
+Alias: protoparser, protoml-parser
+Alias Protoviewer: protoviewer, protoml-viewer
 Usage:
   protoparser [options] <filename> <format>
   protoparser --listMacros <macro_dir>
@@ -265,6 +271,7 @@ Usage:
   protoparser --listMacrosJson <macro_dir>
   protoparser --listDocs
   protoparser --docs <module>
+  protoviewer <filename> <theme>
 
 Options:
   -v, -vv, -vvv           Set verbosity level (1–3)
@@ -287,6 +294,7 @@ Examples:
   protoparser --listMacrosJson {{macro_dir}}
   protoparser --listDocs
   protoparser --docs meeting
+  protoviewer Meeting.pml dark
 `);
 }
 
